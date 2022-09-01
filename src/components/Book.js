@@ -1,7 +1,17 @@
 import React from "react";
 const Book = (props) => {
-  const book = props.book;
-  const shelf = props.book.shelf;
+  const {book} = props;
+  const {shelf} = props.book;
+  const shelves = [
+    {
+      id: "1",
+      shelfName: "currentlyReading",
+      shelfDisplayName: "Currently Reading",
+    },
+    { id: "2", shelfName: "wantToRead", shelfDisplayName: "want To Read" },
+    { id: "3", shelfName: "read", shelfDisplayName: "Read" },
+    { id: "4", shelfName: "none", shelfDisplayName: "None" },
+  ];
   const updateShelf = (e) => {
     props.changeShelf(book, e.target.value);
   };
@@ -25,10 +35,9 @@ const Book = (props) => {
               <option value="none" disabled>
                 Move to...
               </option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
+              {shelves.map(({id,shelfName,shelfDisplayName}) => {
+                return <option key={id} value={shelfName}>{shelfDisplayName}</option>;
+              })}
             </select>
           </div>
         </div>
