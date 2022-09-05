@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BookShelf from "../components/BookShelf";
+import Header from "../components/Header";
 const Home = (props) => {
   const books = props.booksList;
   const changeShelf = props.changeShelf;
   return (
     <div className="list-books">
-      <div className="list-books-title">
-        <h1>MyReads</h1>
-      </div>
+      <Header />
       <div className="list-books-content">
         <div>
           {/* BOOK SHELF  */}

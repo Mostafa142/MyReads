@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import * as BooksAPI from "./BooksAPI";
 import { useState, useEffect } from "react";
+import NotFoundComponent from "./components/NotFoundComponent";
 const App = () => {
   const [booksList, setBooksList] = useState([]);
   const [query, setQuery] = useState("");
@@ -20,6 +21,7 @@ const App = () => {
       setBooksList(res);
     });
   };
+
   const handleSearch = (e) => {
     setQuery(e.target.value);
   };
@@ -33,7 +35,6 @@ const App = () => {
           if (isActive) {
             setSearchBooks(res);
             console.log(res);
-
           }
         }
       });
@@ -60,9 +61,11 @@ const App = () => {
                 handleSearch={handleSearch}
                 changeShelf={changeShelf}
                 searchBooks={searchBooks}
+                booksList={booksList}
               />
             }
           />
+          <Route path="*" element={<NotFoundComponent />} />
         </Routes>
       </div>
     </Router>

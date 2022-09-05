@@ -15,7 +15,7 @@ const Book = (props) => {
   const updateShelf = (e) => {
     props.changeShelf(book, e.target.value);
   };
-  console.log(book);
+  console.log(props);
   return (
     <li>
       <div className="book">
@@ -32,7 +32,7 @@ const Book = (props) => {
           ></div>
           <div className="book-shelf-changer">
             <select onChange={updateShelf} value={shelf ? shelf : "none"}>
-              <option value="none" disabled>
+              <option value="non" disabled>
                 Move to...
               </option>
               {shelves.map(({id,shelfName,shelfDisplayName}) => {

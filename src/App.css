@@ -180,3 +180,12 @@ body,
   text-align: center;
   font-size: 0.8em;
 }
+
+section.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 70vh;
+}
